@@ -35,9 +35,16 @@ const Hero = () => {
             <Mail className="mr-2 h-5 w-5" />
             Entre em Contato
           </Button>
-          <Button variant="outline" size="lg" className="hover-lift">
-            <Download className="mr-2 h-5 w-5" />
-            Download CV
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="hover-lift"
+            asChild
+          >
+            <a href="/cv-emerson.pdf" download="CV-Emerson.pdf">
+              <Download className="mr-2 h-5 w-5" />
+              Download CV
+            </a>
           </Button>
         </div>
         
