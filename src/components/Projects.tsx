@@ -24,7 +24,8 @@ const Projects = () => {
       bgColor: "bg-success/10",
       link: "https://biosphereods.vercel.app",
       type: "Web Development",
-      featured: true
+      featured: true,
+      github: "https://github.com/EmersondeAquino/biosphere-ods"
     },
     {
       title: "Trabalho de Julia",
@@ -33,7 +34,8 @@ const Projects = () => {
       icon: TrendingUp,
       color: "text-secondary",
       bgColor: "bg-secondary/10",
-      type: "Data Science"
+      type: "Data Science",
+      github: "https://github.com/EmersondeAquino/trabalho-julia"
     },
     {
       title: "Dashboard Power BI",
@@ -42,7 +44,8 @@ const Projects = () => {
       icon: BarChart3,
       color: "text-accent",
       bgColor: "bg-accent/10",
-      type: "Business Intelligence"
+      type: "Business Intelligence",
+      github: "https://github.com/EmersondeAquino/dashboard-powerbi"
     }
   ];
 
