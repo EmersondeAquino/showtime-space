@@ -35,7 +35,11 @@ const Projects = () => {
       color: "text-secondary",
       bgColor: "bg-secondary/10",
       type: "Data Science",
+<<<<<<< HEAD
       github: "https://github.com/EmersondeAquino/Trabalho_Julia"
+=======
+      github: "https://github.com/EmersondeAquino/trabalho-julia"
+>>>>>>> 68b69455b707663854bf247e2c854fe43d02070e
     },
     {
       title: "Dashboard Power BI",
@@ -45,7 +49,11 @@ const Projects = () => {
       color: "text-accent",
       bgColor: "bg-accent/10",
       type: "Business Intelligence",
+<<<<<<< HEAD
       github: "/dashboard_Bi.pbix"
+=======
+      github: "https://github.com/EmersondeAquino/dashboard-powerbi"
+>>>>>>> 68b69455b707663854bf247e2c854fe43d02070e
     }
   ];
 
