@@ -12,7 +12,8 @@ const Projects = () => {
       icon: Gamepad2,
       color: "text-primary",
       bgColor: "bg-primary/10",
-      type: "Game Development"
+      type: "Game Development",
+      github: "https://github.com/EmersondeAquino/chess-system-java"
     },
     {
       title: "Biosphere ODS",
@@ -92,14 +93,25 @@ const Projects = () => {
               </div>
 
               <div className="flex gap-3">
-                <Button variant="outline" size="sm" className="hover-bounce">
-                  <Github className="h-4 w-4 mr-2" />
-                  Código
-                </Button>
+                {project.github ? (
+                  <Button variant="outline" size="sm" className="hover-bounce" asChild>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="h-4 w-4 mr-2" />
+                      Código
+                    </a>
+                  </Button>
+                ) : (
+                  <Button variant="outline" size="sm" className="hover-bounce">
+                    <Github className="h-4 w-4 mr-2" />
+                    Código
+                  </Button>
+                )}
                 {project.link && (
-                  <Button size="sm" className="hover-bounce">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Ver Projeto
+                  <Button size="sm" className="hover-bounce" asChild>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Ver Projeto
+                    </a>
                   </Button>
                 )}
               </div>
