@@ -39,19 +39,22 @@ const Contact = () => {
       icon: Github,
       name: "GitHub",
       color: "hover:text-foreground",
-      bgColor: "hover:bg-foreground/10"
+      bgColor: "hover:bg-foreground/10",
+      link: "https://github.com/EmersondeAquino"
     },
     {
       icon: Linkedin,
       name: "LinkedIn",
       color: "hover:text-primary",
-      bgColor: "hover:bg-primary/10"
+      bgColor: "hover:bg-primary/10",
+      link: "https://www.linkedin.com/in/emerson-aquino-53a34028b/"
     },
     {
       icon: Mail,
       name: "Email",
       color: "hover:text-success",
-      bgColor: "hover:bg-success/10"
+      bgColor: "hover:bg-success/10",
+      link: "mailto:emersonde.a.s.a.s@gmail.com"
     }
   ];
 
@@ -105,21 +108,28 @@ const Contact = () => {
                 variant="ghost"
                 size="lg"
                 className={`${social.color} ${social.bgColor} hover-bounce`}
+                asChild
               >
-                <social.icon className="h-6 w-6 mr-2" />
-                {social.name}
+                <a href={social.link} target="_blank" rel="noopener noreferrer">
+                  <social.icon className="h-6 w-6 mr-2" />
+                  {social.name}
+                </a>
               </Button>
             ))}
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="hover-bounce animate-pulse-glow">
-              <Mail className="h-5 w-5 mr-2" />
-              Enviar Email
+            <Button size="lg" className="hover-bounce animate-pulse-glow" asChild>
+              <a href="mailto:emersonde.a.s.a.s@gmail.com">
+                <Mail className="h-5 w-5 mr-2" />
+                Enviar Email
+              </a>
             </Button>
-            <Button variant="outline" size="lg" className="hover-lift">
-              <Phone className="h-5 w-5 mr-2" />
-              Ligar Agora
+            <Button variant="outline" size="lg" className="hover-lift" asChild>
+              <a href="tel:+5571991039888">
+                <Phone className="h-5 w-5 mr-2" />
+                Ligar Agora
+              </a>
             </Button>
           </div>
         </Card>

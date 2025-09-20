@@ -31,26 +31,41 @@ const Hero = () => {
         
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button size="lg" className="hover-bounce animate-pulse-glow">
-            <Mail className="mr-2 h-5 w-5" />
-            Entre em Contato
+          <Button size="lg" className="hover-bounce animate-pulse-glow" asChild>
+            <a href="mailto:emersonde.a.s.a.s@gmail.com?subject=Contato%20via%20Portfólio&body=Olá%20Emerson,%0D%0A%0D%0AEu%20gostaria%20de%20conversar%20sobre...%0D%0A%0D%0AAtenciosamente,">
+              <Mail className="mr-2 h-5 w-5" />
+              Entre em Contato
+            </a>
           </Button>
-          <Button variant="outline" size="lg" className="hover-lift">
-            <Download className="mr-2 h-5 w-5" />
-            Download CV
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="hover-lift"
+            asChild
+          >
+            <a href="/cv-emerson.pdf" download="CV-Emerson.pdf">
+              <Download className="mr-2 h-5 w-5" />
+              Download CV
+            </a>
           </Button>
         </div>
         
         {/* Social Links */}
         <div className="flex justify-center gap-6">
-          <Button variant="ghost" size="icon" className="hover-bounce">
-            <Github className="h-6 w-6" />
+          <Button variant="ghost" size="icon" className="hover-bounce" asChild>
+            <a href="https://github.com/EmersondeAquino" target="_blank" rel="noopener noreferrer">
+              <Github className="h-6 w-6" />
+            </a>
           </Button>
-          <Button variant="ghost" size="icon" className="hover-bounce">
-            <Linkedin className="h-6 w-6" />
+          <Button variant="ghost" size="icon" className="hover-bounce" asChild>
+            <a href="https://www.linkedin.com/in/emerson-aquino-53a34028b/" target="_blank" rel="noopener noreferrer">
+              <Linkedin className="h-6 w-6" />
+            </a>
           </Button>
-          <Button variant="ghost" size="icon" className="hover-bounce">
-            <Mail className="h-6 w-6" />
+          <Button variant="ghost" size="icon" className="hover-bounce" asChild>
+            <a href="mailto:emersonde.a.s.a.s@gmail.com">
+              <Mail className="h-6 w-6" />
+            </a>
           </Button>
         </div>
       </div>

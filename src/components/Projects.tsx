@@ -12,7 +12,8 @@ const Projects = () => {
       icon: Gamepad2,
       color: "text-primary",
       bgColor: "bg-primary/10",
-      type: "Game Development"
+      type: "Game Development",
+      github: "https://github.com/EmersondeAquino/chess-system-java"
     },
     {
       title: "Biosphere ODS",
@@ -23,7 +24,8 @@ const Projects = () => {
       bgColor: "bg-success/10",
       link: "https://biosphereods.vercel.app",
       type: "Web Development",
-      featured: true
+      featured: true,
+      github: "https://github.com/EmersondeAquino/biosphere-ods"
     },
     {
       title: "Trabalho de Julia",
@@ -32,7 +34,8 @@ const Projects = () => {
       icon: TrendingUp,
       color: "text-secondary",
       bgColor: "bg-secondary/10",
-      type: "Data Science"
+      type: "Data Science",
+      github: "https://github.com/EmersondeAquino/Trabalho_Julia"
     },
     {
       title: "Dashboard Power BI",
@@ -41,7 +44,8 @@ const Projects = () => {
       icon: BarChart3,
       color: "text-accent",
       bgColor: "bg-accent/10",
-      type: "Business Intelligence"
+      type: "Business Intelligence",
+      github: "/dashboard_Bi.pbix"
     }
   ];
 
@@ -92,14 +96,25 @@ const Projects = () => {
               </div>
 
               <div className="flex gap-3">
-                <Button variant="outline" size="sm" className="hover-bounce">
-                  <Github className="h-4 w-4 mr-2" />
-                  Código
-                </Button>
+                {project.github ? (
+                  <Button variant="outline" size="sm" className="hover-bounce" asChild>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="h-4 w-4 mr-2" />
+                      Código
+                    </a>
+                  </Button>
+                ) : (
+                  <Button variant="outline" size="sm" className="hover-bounce">
+                    <Github className="h-4 w-4 mr-2" />
+                    Código
+                  </Button>
+                )}
                 {project.link && (
-                  <Button size="sm" className="hover-bounce">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Ver Projeto
+                  <Button size="sm" className="hover-bounce" asChild>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Ver Projeto
+                    </a>
                   </Button>
                 )}
               </div>
