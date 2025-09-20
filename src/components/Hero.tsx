@@ -32,7 +32,7 @@ const Hero = () => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button size="lg" className="hover-bounce animate-pulse-glow" asChild>
-            <a href="mailto:emersonde.a.s.a.s@gmail.com">
+            <a href="mailto:emersonde.a.s.a.s@gmail.com?subject=Contato%20via%20Portfólio&body=Olá%20Emerson,%0D%0A%0D%0AEu%20gostaria%20de%20conversar%20sobre...%0D%0A%0D%0AAtenciosamente,">
               <Mail className="mr-2 h-5 w-5" />
               Entre em Contato
             </a>
