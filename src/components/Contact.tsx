@@ -120,7 +120,7 @@ const Contact = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="hover-bounce animate-pulse-glow" asChild>
-              <a href="mailto:emersonde.a.s.a.s@gmail.com">
+              <a href="#contact-form">
                 <Mail className="h-5 w-5 mr-2" />
                 Enviar Email
               </a>

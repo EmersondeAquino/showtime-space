@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, BarChart3, Globe, Gamepad2, TrendingUp } from "lucide-react";
+import { ExternalLink, Github, BarChart3, Globe, Gamepad2, TrendingUp, Download } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -45,7 +45,7 @@ const Projects = () => {
       color: "text-accent",
       bgColor: "bg-accent/10",
       type: "Business Intelligence",
-      github: "https://github.com/EmersondeAquino/dashboard-powerbi"
+      download: "/dashboard_Bi.pbix"
     }
   ];
 
@@ -96,17 +96,20 @@ const Projects = () => {
               </div>
 
               <div className="flex gap-3">
-                {project.github ? (
+                {project.github && (
                   <Button variant="outline" size="sm" className="hover-bounce" asChild>
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="h-4 w-4 mr-2" />
                       Código
                     </a>
                   </Button>
-                ) : (
-                  <Button variant="outline" size="sm" className="hover-bounce">
-                    <Github className="h-4 w-4 mr-2" />
-                    Código
+                )}
+                {project.download && (
+                  <Button variant="outline" size="sm" className="hover-bounce" asChild>
+                    <a href={project.download} download>
+                      <Download className="h-4 w-4 mr-2" />
+                      Download
+                    </a>
                   </Button>
                 )}
                 {project.link && (
