@@ -19,14 +19,32 @@ const ContactForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Criar link mailto com os dados do formulário
-    const mailtoLink = `mailto:emersonde.a.s.a.s@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-      `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`
-    )}`;
+    // Criar email formatado com todos os dados
+    const emailBody = `
+Olá Emerson,
+
+Recebi uma nova mensagem através do seu portfólio:
+
+---
+Nome: ${formData.name}
+Email: ${formData.email}
+Assunto: ${formData.subject}
+
+Mensagem:
+${formData.message}
+---
+
+Atenciosamente,
+${formData.name}
+    `.trim();
     
-    window.location.href = mailtoLink;
+    // Criar link mailto formatado
+    const mailtoLink = `mailto:emersonde.a.s.a.s@gmail.com?subject=${encodeURIComponent(`[Portfólio] ${formData.subject}`)}&body=${encodeURIComponent(emailBody)}`;
     
-    // Limpar os campos do formulário
+    // Abrir cliente de email
+    window.open(mailtoLink, '_blank');
+    
+    // Limpar formulário
     setFormData({
       name: "",
       email: "",
