@@ -26,6 +26,14 @@ const ContactForm = () => {
     
     window.location.href = mailtoLink;
     
+    // Limpar os campos do formulário
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: ""
+    });
+    
     toast({
       title: "Email preparado!",
       description: "Seu cliente de email foi aberto com a mensagem pronta para envio.",
@@ -116,11 +124,19 @@ const ContactForm = () => {
             <p className="text-sm text-muted-foreground mb-4">
               Ou entre em contato diretamente:
             </p>
-            <Button variant="outline" size="sm" asChild>
-              <a href="mailto:emersonde.a.s.a.s@gmail.com">
-                <Mail className="h-4 w-4 mr-2" />
-                emersonde.a.s.a.s@gmail.com
-              </a>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => {
+                navigator.clipboard.writeText("emersonde.a.s.a.s@gmail.com");
+                toast({
+                  title: "Email copiado!",
+                  description: "O endereço de email foi copiado para a área de transferência.",
+                });
+              }}
+            >
+              <Mail className="h-4 w-4 mr-2" />
+              emersonde.a.s.a.s@gmail.com
             </Button>
           </div>
         </Card>

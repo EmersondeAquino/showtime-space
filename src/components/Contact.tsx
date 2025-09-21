@@ -102,7 +102,7 @@ const Contact = () => {
         <Card className="p-8 card-gradient hover-lift text-center">
           <h3 className="text-2xl font-bold mb-6">Conecte-se Comigo</h3>
           <div className="flex justify-center gap-4 mb-8">
-            {socialLinks.map((social, index) => (
+            {socialLinks.filter(social => social.name !== 'Email').map((social, index) => (
               <Button
                 key={index}
                 variant="ghost"
@@ -118,13 +118,7 @@ const Contact = () => {
             ))}
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="hover-bounce animate-pulse-glow" asChild>
-              <a href="#contact-form">
-                <Mail className="h-5 w-5 mr-2" />
-                Enviar Email
-              </a>
-            </Button>
+          <div className="flex justify-center">
             <Button variant="outline" size="lg" className="hover-lift" asChild>
               <a href="tel:+5571991039888">
                 <Phone className="h-5 w-5 mr-2" />

@@ -32,7 +32,7 @@ const Hero = () => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Button size="lg" className="hover-bounce animate-pulse-glow" asChild>
-            <a href="mailto:emersonde.a.s.a.s@gmail.com?subject=Contato%20via%20Portfólio&body=Olá%20Emerson,%0D%0A%0D%0AEu%20gostaria%20de%20conversar%20sobre...%0D%0A%0D%0AAtenciosamente,">
+            <a href="#contact-form">
               <Mail className="mr-2 h-5 w-5" />
               Entre em Contato
             </a>
@@ -60,11 +60,6 @@ const Hero = () => {
           <Button variant="ghost" size="icon" className="hover-bounce" asChild>
             <a href="https://www.linkedin.com/in/emerson-aquino-53a34028b/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="h-6 w-6" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" className="hover-bounce" asChild>
-            <a href="mailto:emersonde.a.s.a.s@gmail.com">
-              <Mail className="h-6 w-6" />
             </a>
           </Button>
         </div>
