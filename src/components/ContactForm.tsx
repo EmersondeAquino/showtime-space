@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Send, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -14,30 +15,54 @@ const ContactForm = () => {
     subject: "",
     message: ""
   });
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     
-    // Criar link mailto com os dados do formulário
-    const mailtoLink = `mailto:emersonde.a.s.a.s@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-      `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`
-    )}`;
-    
-    window.location.href = mailtoLink;
-    
-    // Limpar os campos do formulário
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
-    
-    toast({
-      title: "Email preparado!",
-      description: "Seu cliente de email foi aberto com a mensagem pronta para envio.",
-    });
+    try {
+      // Configuração do EmailJS - você precisará configurar estes valores
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'emersonde.a.s.a.s@gmail.com'
+      };
+
+      // Enviar email diretamente usando EmailJS
+      // Nota: Você precisará configurar sua conta EmailJS e substituir estes IDs
+      await emailjs.send(
+        'your_service_id', // Substitua pelo seu Service ID
+        'your_template_id', // Substitua pelo seu Template ID
+        templateParams,
+        'your_public_key' // Substitua pela sua Public Key
+      );
+
+      // Limpar os campos do formulário
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
+      
+      toast({
+        title: "Mensagem enviada!",
+        description: "Sua mensagem foi enviada com sucesso. Em breve entrarei em contato!",
+      });
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
+      toast({
+        title: "Erro ao enviar",
+        description: "Houve um problema ao enviar sua mensagem. Tente novamente ou entre em contato diretamente.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -114,9 +139,9 @@ const ContactForm = () => {
               />
             </div>
             
-            <Button type="submit" size="lg" className="w-full hover-bounce">
+            <Button type="submit" size="lg" className="w-full hover-bounce" disabled={isLoading}>
               <Send className="h-5 w-5 mr-2" />
-              Enviar Mensagem
+              {isLoading ? "Enviando..." : "Enviar Mensagem"}
             </Button>
           </form>
           
