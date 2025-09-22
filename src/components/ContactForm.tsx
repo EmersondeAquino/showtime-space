@@ -21,7 +21,7 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     try {
       // Configuração do EmailJS - você precisará configurar estes valores
       const templateParams = {
@@ -48,7 +48,6 @@ const ContactForm = () => {
         subject: "",
         message: ""
       });
-      
       toast({
         title: "Mensagem enviada!",
         description: "Sua mensagem foi enviada com sucesso. Em breve entrarei em contato!",
